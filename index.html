@@ -1,0 +1,2093 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portal educativo de inclusão e segurança digital para a comunidade escolar." />
+  <title>Conecta Seguro | Inclusão e Segurança Digital</title>
+
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --surface:#ffffff;
+      --text:#172033;
+      --muted:#5f6b7a;
+      --primary:#1f5eff;
+      --primary-dark:#194cd0;
+      --accent:#0e8f66;
+      --danger:#b42318;
+      --warning:#a15c00;
+      --border:#dfe5ec;
+      --shadow:0 10px 30px rgba(18,38,63,.08);
+      --radius:18px;
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{color:inherit}
+
+    .skip{
+      position:absolute;
+      left:-9999px;
+      top:8px;
+      background:#000;
+      color:#fff;
+      padding:10px 14px;
+      z-index:999;
+      border-radius:8px;
+    }
+
+    .skip:focus{left:8px}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(255,255,255,.96);
+      border-bottom:1px solid var(--border);
+      backdrop-filter:blur(10px);
+    }
+
+    .nav{
+      max-width:var(--max);
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+
+    .brand-badge{
+      width:38px;
+      height:38px;
+      display:grid;
+      place-items:center;
+      background:var(--primary);
+      color:white;
+      border-radius:12px;
+      font-size:20px;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:8px;
+      margin:0;
+      padding:0;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    nav a{
+      text-decoration:none;
+      padding:8px 10px;
+      border-radius:10px;
+      color:var(--muted);
+      font-weight:600;
+      font-size:.93rem;
+    }
+
+    nav a:hover,
+    nav a:focus{
+      background:#eef3ff;
+      color:var(--primary);
+    }
+
+    .hero{
+      background:linear-gradient(135deg,#1f5eff,#123da7);
+      color:white;
+      padding:74px 20px 58px;
+    }
+
+    .hero .wrap{
+      max-width:var(--max);
+      margin:auto;
+      display:grid;
+      grid-template-columns:1.3fr .7fr;
+      gap:34px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.25);
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:.88rem;
+      margin-bottom:14px;
+    }
+
+    h1{
+      font-size:clamp(2rem,5vw,4rem);
+      line-height:1.05;
+      margin:.1em 0 .3em;
+    }
+
+    h2{
+      font-size:clamp(1.5rem,3vw,2.2rem);
+      line-height:1.2;
+      margin:0 0 12px;
+    }
+
+    h3{margin:.2em 0 .45em}
+
+    .hero p{
+      font-size:1.08rem;
+      max-width:720px;
+      color:#e9efff;
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:24px;
+    }
+
+    .btn{
+      display:inline-block;
+      border:none;
+      cursor:pointer;
+      text-decoration:none;
+      padding:12px 18px;
+      border-radius:12px;
+      font-weight:800;
+      font-size:1rem;
+      transition:.2s ease;
+    }
+
+    .btn:hover{transform:translateY(-1px)}
+    .btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+    .btn-light{
+      background:white;
+      color:var(--primary);
+    }
+
+    .btn-ghost{
+      background:transparent;
+      color:white;
+      border:1px solid rgba(255,255,255,.45);
+    }
+
+    .btn-primary{
+      background:var(--primary);
+      color:white;
+    }
+
+    .btn-primary:hover{background:var(--primary-dark)}
+
+    .hero-card{
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:var(--radius);
+      padding:22px;
+    }
+
+    .hero-card ul{
+      padding-left:20px;
+      margin-bottom:0;
+    }
+
+    main section{padding:58px 20px}
+    .wrap{max-width:var(--max);margin:auto}
+
+    .section-lead{
+      max-width:800px;
+      color:var(--muted);
+      margin-bottom:24px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+
+    .icon{
+      width:44px;
+      height:44px;
+      display:grid;
+      place-items:center;
+      border-radius:12px;
+      background:#eef3ff;
+      font-size:22px;
+      margin-bottom:12px;
+    }
+
+    .tip{
+      border-left:4px solid var(--accent);
+      background:#effaf6;
+      padding:14px 16px;
+      border-radius:10px;
+      margin-top:14px;
+    }
+
+    .warning{
+      border-left-color:#f0a202;
+      background:#fff7e8;
+    }
+
+    .danger{
+      border-left-color:#d92d20;
+      background:#fff1f0;
+    }
+
+    .steps{
+      counter-reset:item;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
+
+    .step{
+      background:white;
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px 18px 18px 58px;
+      position:relative;
+    }
+
+    .step::before{
+      counter-increment:item;
+      content:counter(item);
+      position:absolute;
+      left:16px;
+      top:16px;
+      width:30px;
+      height:30px;
+      border-radius:50%;
+      background:var(--primary);
+      color:white;
+      display:grid;
+      place-items:center;
+      font-weight:800;
+    }
+
+    .survey-box,
+    .quiz{
+      background:white;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .privacy-box{
+      background:#eef5ff;
+      border:1px solid #c9dafc;
+      border-radius:14px;
+      padding:18px;
+      margin-bottom:22px;
+    }
+
+    .privacy-box strong{
+      display:block;
+      margin-bottom:5px;
+    }
+
+    .field{
+      padding:18px 0;
+      border-bottom:1px solid var(--border);
+    }
+
+    .field:last-child{border-bottom:none}
+
+    .field-title{
+      font-weight:800;
+      margin:0 0 10px;
+    }
+
+    .required{
+      color:var(--danger);
+      font-weight:800;
+    }
+
+    label.option{
+      display:block;
+      margin:9px 0;
+      cursor:pointer;
+      padding:7px 8px;
+      border-radius:8px;
+    }
+
+    label.option:hover{background:#f5f7fb}
+
+    input[type="radio"],
+    input[type="checkbox"]{
+      width:18px;
+      height:18px;
+      vertical-align:-3px;
+      margin-right:7px;
+      accent-color:var(--primary);
+    }
+
+    .scale{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:10px;
+    }
+
+    .scale label{
+      min-width:54px;
+      text-align:center;
+      background:#f6f8fb;
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:9px 8px;
+      cursor:pointer;
+    }
+
+    .scale label:has(input:checked){
+      background:#e9efff;
+      border-color:var(--primary);
+    }
+
+    .question{
+      padding:18px 0;
+      border-bottom:1px solid var(--border);
+    }
+
+    .question:last-child{border-bottom:0}
+    .question p{font-weight:800;margin:0 0 8px}
+
+    .result{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:#eef3ff;
+      display:none;
+      font-weight:700;
+    }
+
+    .final-evaluation{
+      display:none;
+      margin-top:22px;
+      padding-top:12px;
+      border-top:2px solid var(--border);
+    }
+
+    .status{
+      display:none;
+      margin-top:16px;
+      padding:14px 16px;
+      border-radius:12px;
+      font-weight:700;
+    }
+
+    .status.ok{
+      display:block;
+      color:#0b6b4d;
+      background:#edf9f4;
+      border:1px solid #bce8d7;
+    }
+
+    .status.error{
+      display:block;
+      color:#8a1c13;
+      background:#fff1f0;
+      border:1px solid #f4b8b2;
+    }
+
+    .status.info{
+      display:block;
+      color:#244b88;
+      background:#eef5ff;
+      border:1px solid #c9dafc;
+    }
+
+    .ods{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .tag{
+      background:#edf9f4;
+      color:#0b6b4d;
+      border:1px solid #bce8d7;
+      border-radius:999px;
+      padding:7px 11px;
+      font-weight:700;
+      font-size:.9rem;
+    }
+
+    .small{
+      font-size:.9rem;
+      color:var(--muted);
+    }
+
+    .access{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      z-index:30;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .access button{
+      border:1px solid var(--border);
+      background:white;
+      border-radius:10px;
+      padding:9px 11px;
+      box-shadow:var(--shadow);
+      cursor:pointer;
+      font-weight:800;
+    }
+
+    footer{
+      background:#0f1728;
+      color:#cbd5e1;
+      padding:28px 20px;
+      text-align:center;
+      font-size:.92rem;
+    }
+
+    .high-contrast{
+      --bg:#000;
+      --surface:#111;
+      --text:#fff;
+      --muted:#f2f2f2;
+      --primary:#ffde00;
+      --primary-dark:#ffde00;
+      --accent:#00ff9d;
+      --border:#fff;
+      --shadow:none;
+    }
+
+    .high-contrast .hero{
+      background:#000;
+      color:#fff;
+      border-bottom:2px solid #fff;
+    }
+
+    .high-contrast .btn-light{
+      background:#ffde00;
+      color:#000;
+    }
+
+    .high-contrast .card,
+    .high-contrast .quiz,
+    .high-contrast .survey-box,
+    .high-contrast .step{
+      background:#111;
+    }
+
+    .high-contrast label.option:hover,
+    .high-contrast .scale label{
+      background:#222;
+    }
+
+    .high-contrast .privacy-box{
+      background:#111;
+      border-color:#fff;
+    }
+
+    @media(max-width:900px){
+      .hero .wrap{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+      .nav{align-items:flex-start}
+      nav ul{display:none}
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
+  <header>
+    <div class="nav">
+      <a class="brand" href="#inicio" aria-label="Conecta Seguro - início">
+        <span class="brand-badge">✓</span>
+        <span>Conecta Seguro</span>
+      </a>
+
+      <nav aria-label="Navegação principal">
+        <ul>
+          <li><a href="#golpes">Golpes</a></li>
+          <li><a href="#protecao">Proteção</a></li>
+          <li><a href="#clonagem">Clonagem</a></li>
+          <li><a href="#vitima">Se acontecer</a></li>
+          <li><a href="#pesquisa">Pesquisa</a></li>
+          <li><a href="#quiz">Quiz</a></li>
+          <li><a href="#projeto">Projeto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="inicio">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">Projeto de Inclusão e Segurança Digital</span>
+          <h1>Use a internet com mais segurança.</h1>
+          <p>
+            Informação simples e prática para ajudar estudantes e a comunidade escolar
+            a reconhecer golpes, proteger dados pessoais e utilizar serviços digitais com mais confiança.
+          </p>
+
+          <div class="actions">
+            <a class="btn btn-light" href="#golpes">Começar agora</a>
+            <a class="btn btn-ghost" href="#pesquisa">Participar da pesquisa</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Resumo do conteúdo">
+          <strong>Em poucos minutos você vai aprender a:</strong>
+          <ul>
+            <li>identificar mensagens suspeitas e páginas falsas;</li>
+            <li>reconhecer clonagem e invasão de contas;</li>
+            <li>criar senhas mais seguras;</li>
+            <li>proteger seus dados pessoais;</li>
+            <li>saber como agir diante de um golpe.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="golpes">
+      <div class="wrap">
+        <h2>Golpes digitais mais comuns</h2>
+        <p class="section-lead">
+          Golpes digitais costumam explorar confiança, medo, urgência ou promessa de vantagem.
+          Conhecer os sinais ajuda a interromper a fraude antes que ela aconteça.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <div class="icon">🎣</div>
+            <h3>Phishing</h3>
+            <p>Mensagem, e-mail ou página falsa criada para obter senhas, códigos, dados bancários ou outras informações.</p>
+            <div class="tip warning"><strong>Sinal de alerta:</strong> link estranho, urgência, ameaça de bloqueio e pedido de dados.</div>
+          </article>
+
+          <article class="card">
+            <div class="icon">📲</div>
+            <h3>Smishing</h3>
+            <p>É uma tentativa de fraude enviada por SMS ou aplicativo de mensagem, geralmente acompanhada de link.</p>
+            <div class="tip"><strong>Dica:</strong> abra o aplicativo ou site oficial por conta própria.</div>
+          </article>
+
+          <article class="card">
+            <div class="icon">☎️</div>
+            <h3>Vishing</h3>
+            <p>Golpe realizado por ligação telefônica. O criminoso pode fingir ser do banco, suporte ou órgão público.</p>
+            <div class="tip danger"><strong>Atenção:</strong> não informe senha, token ou código recebido por SMS.</div>
+          </article>
+
+          <article class="card">
+            <div class="icon">💬</div>
+            <h3>Falso familiar</h3>
+            <p>O golpista usa foto e nome de alguém conhecido e pede dinheiro alegando troca de número ou emergência.</p>
+            <div class="tip warning"><strong>Antes de pagar:</strong> confirme por ligação usando um número já conhecido.</div>
+          </article>
+
+          <article class="card">
+            <div class="icon">💳</div>
+            <h3>Cartão e compra falsa</h3>
+            <p>Dados podem ser obtidos em páginas falsas, links de pagamento ou falsas lojas virtuais.</p>
+            <div class="tip"><strong>Boa prática:</strong> confira o endereço do site e o destinatário do pagamento.</div>
+          </article>
+
+          <article class="card">
+            <div class="icon">🧾</div>
+            <h3>Boleto falso</h3>
+            <p>O documento parece verdadeiro, mas o código de barras ou QR Code envia o pagamento para outro beneficiário.</p>
+            <div class="tip warning"><strong>Confira:</strong> nome do beneficiário, CPF/CNPJ e valor.</div>
+          </article>
+
+          <article class="card">
+            <div class="icon">🔳</div>
+            <h3>QR Code malicioso</h3>
+            <p>Um QR Code pode levar a uma página falsa ou iniciar pagamento para destinatário diferente do esperado.</p>
+            <div class="tip"><strong>Dica:</strong> veja o endereço ou destinatário antes de continuar.</div>
+          </article>
+
+          <article class="card">
+            <div class="icon">🛠️</div>
+            <h3>Falso suporte técnico</h3>
+            <p>Criminosos fingem ser de banco ou empresa e pedem instalação de aplicativo ou acesso remoto.</p>
+            <div class="tip danger"><strong>Nunca faça:</strong> conceder acesso remoto por solicitação de desconhecido.</div>
+          </article>
+
+          <article class="card">
+            <div class="icon">🎁</div>
+            <h3>Prêmio, promoção ou emprego falso</h3>
+            <p>A vítima é atraída por uma vantagem e depois é induzida a pagar uma taxa ou fornecer informações.</p>
+            <div class="tip warning"><strong>Desconfie:</strong> vantagem grande demais ou pressão para decidir imediatamente.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="protecao">
+      <div class="wrap">
+        <h2>Como proteger suas contas</h2>
+        <p class="section-lead">Pequenas atitudes reduzem bastante o risco de invasão ou perda de acesso.</p>
+
+        <div class="steps">
+          <div class="step"><strong>Use senhas diferentes</strong><br>Evite repetir a mesma senha em vários serviços.</div>
+          <div class="step"><strong>Ative a verificação em duas etapas</strong><br>Ela adiciona uma proteção extra ao login.</div>
+          <div class="step"><strong>Atualize seus dispositivos</strong><br>Atualizações corrigem falhas de segurança.</div>
+          <div class="step"><strong>Evite expor dados desnecessários</strong><br>Pense antes de publicar documentos, telefone, endereço ou rotina.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="clonagem">
+      <div class="wrap">
+        <h2>Clonagem e invasão de contas</h2>
+        <p class="section-lead">
+          A palavra “clonagem” é usada popularmente para situações diferentes.
+          Em muitos casos, o criminoso toma o controle de uma conta ou do número de telefone.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <div class="icon">📱</div>
+            <h3>WhatsApp invadido</h3>
+            <p>O criminoso consegue o código de verificação e registra a conta em outro aparelho.</p>
+            <div class="tip danger"><strong>Nunca compartilhe:</strong> o código de verificação recebido por SMS ou ligação.</div>
+          </article>
+
+          <article class="card">
+            <div class="icon">📡</div>
+            <h3>SIM Swap</h3>
+            <p>O número pode ser transferido fraudulentamente para outro chip, permitindo receber mensagens de recuperação.</p>
+            <div class="tip warning"><strong>Sinal:</strong> perda inesperada de sinal, chamadas e SMS.</div>
+          </article>
+
+          <article class="card">
+            <div class="icon">🔐</div>
+            <h3>Roubo de conta</h3>
+            <p>Senhas vazadas, repetidas ou capturadas em páginas falsas podem permitir acesso indevido a diferentes serviços.</p>
+            <div class="tip"><strong>Proteção:</strong> use senhas únicas e autenticação em duas etapas.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="wrap">
+        <h2>Uso consciente de serviços digitais</h2>
+        <p class="section-lead">A internet facilita tarefas do cotidiano, mas exige atenção e verificação.</p>
+
+        <div class="grid">
+          <article class="card">
+            <div class="icon">📧</div>
+            <h3>E-mail</h3>
+            <p>Confira o remetente e desconfie de anexos inesperados ou mensagens com urgência excessiva.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">📱</div>
+            <h3>Redes sociais</h3>
+            <p>Revise configurações de privacidade e evite compartilhar informações desnecessárias.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🏛️</div>
+            <h3>Serviços públicos digitais</h3>
+            <p>Acesse serviços oficiais digitando o endereço conhecido ou utilizando aplicativos oficiais.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="vitima">
+      <div class="wrap">
+        <h2>O que fazer se você cair em um golpe?</h2>
+        <p class="section-lead">
+          Agir rapidamente pode ajudar a reduzir o prejuízo. Os passos abaixo são gerais e devem ser adaptados à situação.
+        </p>
+
+        <div class="steps">
+          <div class="step"><strong>Interrompa o contato</strong><br>Pare de responder, não envie novos dados e não faça novos pagamentos.</div>
+          <div class="step"><strong>Proteja suas contas</strong><br>Troque senhas, encerre sessões abertas e ative autenticação em duas etapas.</div>
+          <div class="step"><strong>Avise o banco ou serviço</strong><br>Use canais oficiais para comunicar fraude e revisar movimentações.</div>
+          <div class="step"><strong>Guarde evidências</strong><br>Salve prints, comprovantes, números, links e horários.</div>
+          <div class="step"><strong>Avise seus contatos</strong><br>Se uma conta foi invadida, alerte pessoas próximas para evitar novos golpes.</div>
+          <div class="step"><strong>Procure os canais oficiais</strong><br>Em casos de fraude ou prejuízo, utilize os canais oficiais de atendimento e segurança pública.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pesquisa">
+      <div class="wrap">
+        <h2>Pesquisa anônima sobre segurança digital</h2>
+        <p class="section-lead">
+          As respostas abaixo ajudam a compreender a experiência da comunidade com golpes digitais
+          e a avaliar o impacto educativo deste projeto.
+        </p>
+
+        <form class="survey-box" id="surveyForm">
+          <div class="privacy-box">
+            <strong>Privacidade e participação voluntária</strong>
+            Esta atividade não solicita nome, e-mail, telefone, matrícula, turma, CPF ou outro identificador pessoal.
+            As respostas serão analisadas de forma agregada para fins acadêmicos.
+            Você pode escolher “Prefiro não responder” nas questões sobre experiências pessoais.
+          </div>
+
+          <div class="field">
+            <p class="field-title">Consentimento <span class="required">*</span></p>
+            <label class="option">
+              <input type="checkbox" id="consentimento" />
+              Li as informações acima e desejo participar anonimamente.
+            </label>
+          </div>
+
+          <div class="field">
+            <p class="field-title">1. Você já recebeu alguma tentativa de golpe digital? <span class="required">*</span></p>
+            <label class="option"><input type="radio" name="tentativaGolpe" value="Sim"> Sim</label>
+            <label class="option"><input type="radio" name="tentativaGolpe" value="Não"> Não</label>
+            <label class="option"><input type="radio" name="tentativaGolpe" value="Não tenho certeza"> Não tenho certeza</label>
+            <label class="option"><input type="radio" name="tentativaGolpe" value="Prefiro não responder"> Prefiro não responder</label>
+          </div>
+
+          <div class="field">
+            <p class="field-title">2. Você já chegou a cair em algum golpe digital? <span class="required">*</span></p>
+            <label class="option"><input type="radio" name="caiuGolpe" value="Sim"> Sim</label>
+            <label class="option"><input type="radio" name="caiuGolpe" value="Não"> Não</label>
+            <label class="option"><input type="radio" name="caiuGolpe" value="Não tenho certeza"> Não tenho certeza</label>
+            <label class="option"><input type="radio" name="caiuGolpe" value="Prefiro não responder"> Prefiro não responder</label>
+          </div>
+
+          <div class="field">
+            <p class="field-title">3. Algum familiar ou pessoa próxima já caiu em golpe digital? <span class="required">*</span></p>
+            <label class="option"><input type="radio" name="familiarCaiu" value="Sim"> Sim</label>
+            <label class="option"><input type="radio" name="familiarCaiu" value="Não"> Não</label>
+            <label class="option"><input type="radio" name="familiarCaiu" value="Não sei"> Não sei</label>
+            <label class="option"><input type="radio" name="familiarCaiu" value="Prefiro não responder"> Prefiro não responder</label>
+          </div>
+
+          <div class="field">
+            <p class="field-title">4. Quais tipos de golpe você já encontrou, recebeu ou presenciou? <span class="required">*</span></p>
+            <label class="option"><input type="checkbox" name="tiposGolpe" value="Phishing / link falso"> Phishing / link falso</label>
+            <label class="option"><input type="checkbox" name="tiposGolpe" value="Falso familiar / WhatsApp"> Falso familiar / WhatsApp</label>
+            <label class="option"><input type="checkbox" name="tiposGolpe" value="Pix"> Pix</label>
+            <label class="option"><input type="checkbox" name="tiposGolpe" value="Boleto falso"> Boleto falso</label>
+            <label class="option"><input type="checkbox" name="tiposGolpe" value="Cartão / compra falsa"> Cartão / compra falsa</label>
+            <label class="option"><input type="checkbox" name="tiposGolpe" value="Loja virtual falsa"> Loja virtual falsa</label>
+            <label class="option"><input type="checkbox" name="tiposGolpe" value="Perfil ou rede social invadida"> Perfil ou rede social invadida</label>
+            <label class="option"><input type="checkbox" name="tiposGolpe" value="Falso banco / suporte"> Falso banco / suporte</label>
+            <label class="option"><input type="checkbox" name="tiposGolpe" value="Prêmio / promoção / emprego falso"> Prêmio / promoção / emprego falso</label>
+            <label class="option"><input type="checkbox" name="tiposGolpe" value="QR Code malicioso"> QR Code malicioso</label>
+            <label class="option"><input type="checkbox" name="tiposGolpe" value="Outro"> Outro</label>
+            <label class="option"><input type="checkbox" name="tiposGolpe" value="Nunca tive contato" data-exclusive="tiposGolpe"> Nunca tive contato com nenhum deles</label>
+          </div>
+
+          <div class="field">
+            <p class="field-title">5. Por quais meios você já recebeu ou presenciou tentativa de golpe? <span class="required">*</span></p>
+            <label class="option"><input type="checkbox" name="canaisGolpe" value="WhatsApp"> WhatsApp</label>
+            <label class="option"><input type="checkbox" name="canaisGolpe" value="SMS"> SMS</label>
+            <label class="option"><input type="checkbox" name="canaisGolpe" value="E-mail"> E-mail</label>
+            <label class="option"><input type="checkbox" name="canaisGolpe" value="Ligação telefônica"> Ligação telefônica</label>
+            <label class="option"><input type="checkbox" name="canaisGolpe" value="Rede social"> Rede social</label>
+            <label class="option"><input type="checkbox" name="canaisGolpe" value="Site / loja virtual"> Site / loja virtual</label>
+            <label class="option"><input type="checkbox" name="canaisGolpe" value="Outro"> Outro</label>
+            <label class="option"><input type="checkbox" name="canaisGolpe" value="Nunca tive contato" data-exclusive="canaisGolpe"> Nunca tive contato</label>
+          </div>
+
+          <div class="field">
+            <p class="field-title">6. Em alguma experiência pessoal houve prejuízo financeiro? <span class="required">*</span></p>
+            <label class="option"><input type="radio" name="prejuizo" value="Sim"> Sim</label>
+            <label class="option"><input type="radio" name="prejuizo" value="Não"> Não</label>
+            <label class="option"><input type="radio" name="prejuizo" value="Não se aplica"> Não se aplica</label>
+            <label class="option"><input type="radio" name="prejuizo" value="Prefiro não responder"> Prefiro não responder</label>
+          </div>
+
+          <div class="field">
+            <p class="field-title">7. Você utiliza autenticação em duas etapas nas suas principais contas? <span class="required">*</span></p>
+            <label class="option"><input type="radio" name="doisFatores" value="Sim"> Sim</label>
+            <label class="option"><input type="radio" name="doisFatores" value="Não"> Não</label>
+            <label class="option"><input type="radio" name="doisFatores" value="Não sei o que é"> Não sei o que é</label>
+          </div>
+
+          <div class="field">
+            <p class="field-title">8. Antes deste conteúdo, quanto você se considerava preparado para reconhecer um golpe? <span class="required">*</span></p>
+            <p class="small">1 = nada preparado · 5 = muito preparado</p>
+            <div class="scale">
+              <label><input type="radio" name="preparoAntes" value="1">1</label>
+              <label><input type="radio" name="preparoAntes" value="2">2</label>
+              <label><input type="radio" name="preparoAntes" value="3">3</label>
+              <label><input type="radio" name="preparoAntes" value="4">4</label>
+              <label><input type="radio" name="preparoAntes" value="5">5</label>
+            </div>
+          </div>
+
+          <div id="surveyValidation" class="status" role="status" aria-live="polite"></div>
+
+          <div style="margin-top:22px">
+            <a class="btn btn-primary" href="#quiz" id="goQuiz">Continuar para o quiz</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <div class="wrap">
+        <h2>Quiz de situações reais</h2>
+        <p class="section-lead">
+          Escolha a atitude mais segura em cada situação. Ao final, você verá a pontuação e poderá enviar
+          todas as respostas anonimamente para a pesquisa.
+        </p>
+
+        <form class="quiz" id="quizForm">
+          <div class="question">
+            <p>1. Um familiar envia mensagem de um número novo pedindo um Pix urgente. O que é mais seguro?</p>
+            <label class="option"><input type="radio" name="q1" value="A"> A) Fazer o Pix porque a foto é conhecida.</label>
+            <label class="option"><input type="radio" name="q1" value="B"> B) Pedir apenas o CPF da pessoa.</label>
+            <label class="option"><input type="radio" name="q1" value="C"> C) Confirmar por ligação ou outro contato que você já conhecia.</label>
+            <label class="option"><input type="radio" name="q1" value="D"> D) Fazer um Pix menor para testar.</label>
+          </div>
+
+          <div class="question">
+            <p>2. Uma pessoa dizendo ser do banco pede o código de seis dígitos recebido por SMS. O que fazer?</p>
+            <label class="option"><input type="radio" name="q2" value="A"> A) Informar o código para cancelar a fraude.</label>
+            <label class="option"><input type="radio" name="q2" value="B"> B) Encerrar o contato e procurar o banco pelos canais oficiais.</label>
+            <label class="option"><input type="radio" name="q2" value="C"> C) Informar somente metade do código.</label>
+            <label class="option"><input type="radio" name="q2" value="D"> D) Enviar um print da mensagem.</label>
+          </div>
+
+          <div class="question">
+            <p>3. Você recebe um SMS dizendo que sua encomenda está retida e precisa pagar uma pequena taxa por um link. Qual atitude é mais segura?</p>
+            <label class="option"><input type="radio" name="q3" value="A"> A) Pagar porque o valor é pequeno.</label>
+            <label class="option"><input type="radio" name="q3" value="B"> B) Abrir o link e conferir.</label>
+            <label class="option"><input type="radio" name="q3" value="C"> C) Consultar a entrega diretamente no site ou aplicativo oficial.</label>
+            <label class="option"><input type="radio" name="q3" value="D"> D) Responder ao SMS pedindo confirmação.</label>
+          </div>
+
+          <div class="question">
+            <p>4. Ao pagar um boleto ou Pix, qual conferência é essencial antes de confirmar?</p>
+            <label class="option"><input type="radio" name="q4" value="A"> A) Apenas o valor.</label>
+            <label class="option"><input type="radio" name="q4" value="B"> B) Apenas a data.</label>
+            <label class="option"><input type="radio" name="q4" value="C"> C) Nome do destinatário/beneficiário e valor.</label>
+            <label class="option"><input type="radio" name="q4" value="D"> D) Somente o logotipo exibido.</label>
+          </div>
+
+          <div class="question">
+            <p>5. Seu celular perde o sinal de forma inesperada e você não consegue mais receber chamadas ou SMS. O que deve fazer?</p>
+            <label class="option"><input type="radio" name="q5" value="A"> A) Ignorar e esperar vários dias.</label>
+            <label class="option"><input type="radio" name="q5" value="B"> B) Verificar a situação com a operadora e proteger as contas importantes.</label>
+            <label class="option"><input type="radio" name="q5" value="C"> C) Desinstalar todos os aplicativos.</label>
+            <label class="option"><input type="radio" name="q5" value="D"> D) Publicar o número nas redes sociais.</label>
+          </div>
+
+          <div class="question">
+            <p>6. Uma loja desconhecida oferece um produto muito abaixo do preço e só aceita Pix. Qual atitude é mais segura?</p>
+            <label class="option"><input type="radio" name="q6" value="A"> A) Comprar rapidamente para não perder a promoção.</label>
+            <label class="option"><input type="radio" name="q6" value="B"> B) Pesquisar a reputação da loja, verificar o endereço do site e desconfiar da oferta.</label>
+            <label class="option"><input type="radio" name="q6" value="C"> C) Comprar se o site tiver muitas imagens.</label>
+            <label class="option"><input type="radio" name="q6" value="D"> D) Confiar se houver contagem regressiva.</label>
+          </div>
+
+          <div class="question">
+            <p>7. Qual prática aumenta mais a segurança de uma conta importante?</p>
+            <label class="option"><input type="radio" name="q7" value="A"> A) Usar a mesma senha em todos os serviços.</label>
+            <label class="option"><input type="radio" name="q7" value="B"> B) Usar senha única e autenticação em duas etapas.</label>
+            <label class="option"><input type="radio" name="q7" value="C"> C) Enviar a senha para si mesmo por mensagem.</label>
+            <label class="option"><input type="radio" name="q7" value="D"> D) Usar apenas o primeiro nome na senha.</label>
+          </div>
+
+          <div class="question">
+            <p>8. Você escaneia um QR Code e aparece um pagamento para um destinatário diferente do esperado. O que fazer?</p>
+            <label class="option"><input type="radio" name="q8" value="A"> A) Pagar porque o QR Code estava impresso.</label>
+            <label class="option"><input type="radio" name="q8" value="B"> B) Interromper o pagamento e confirmar a origem do QR Code.</label>
+            <label class="option"><input type="radio" name="q8" value="C"> C) Pagar um valor menor.</label>
+            <label class="option"><input type="radio" name="q8" value="D"> D) Compartilhar o QR Code para outras pessoas testarem.</label>
+          </div>
+
+          <button class="btn btn-primary" style="margin-top:20px" type="submit">Ver resultado</button>
+
+          <div class="result" id="resultado" role="status" aria-live="polite"></div>
+
+          <div class="final-evaluation" id="finalEvaluation">
+            <h3>Avaliação final</h3>
+
+            <div class="field">
+              <p class="field-title">Depois deste conteúdo, quanto você se sente preparado para reconhecer um golpe? <span class="required">*</span></p>
+              <p class="small">1 = nada preparado · 5 = muito preparado</p>
+              <div class="scale">
+                <label><input type="radio" name="preparoDepois" value="1">1</label>
+                <label><input type="radio" name="preparoDepois" value="2">2</label>
+                <label><input type="radio" name="preparoDepois" value="3">3</label>
+                <label><input type="radio" name="preparoDepois" value="4">4</label>
+                <label><input type="radio" name="preparoDepois" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="field">
+              <p class="field-title">Você se sente mais preparado após acessar o material? <span class="required">*</span></p>
+              <label class="option"><input type="radio" name="maisPreparado" value="Sim"> Sim</label>
+              <label class="option"><input type="radio" name="maisPreparado" value="Não"> Não</label>
+              <label class="option"><input type="radio" name="maisPreparado" value="Não tenho certeza"> Não tenho certeza</label>
+            </div>
+
+            <div class="field">
+              <p class="field-title">Quanto este conteúdo foi útil para você? <span class="required">*</span></p>
+              <p class="small">1 = pouco útil · 5 = muito útil</p>
+              <div class="scale">
+                <label><input type="radio" name="conteudoUtil" value="1">1</label>
+                <label><input type="radio" name="conteudoUtil" value="2">2</label>
+                <label><input type="radio" name="conteudoUtil" value="3">3</label>
+                <label><input type="radio" name="conteudoUtil" value="4">4</label>
+                <label><input type="radio" name="conteudoUtil" value="5">5</label>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" type="button" id="sendData">Enviar respostas anônimas</button>
+            <div id="sendStatus" class="status" role="status" aria-live="polite"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="projeto">
+      <div class="wrap">
+        <h2>Sobre este projeto</h2>
+        <p class="section-lead">
+          Este portal integra uma atividade de extensão acadêmica voltada à inclusão e à segurança digital
+          da comunidade escolar. O objetivo é disponibilizar conteúdo educativo gratuito, acessível e de fácil compreensão,
+          além de produzir indicadores anônimos sobre conhecimento e experiências com golpes digitais.
+        </p>
+
+        <div class="ods">
+          <span class="tag">ODS 4 — Educação de Qualidade</span>
+          <span class="tag">Inclusão Digital</span>
+          <span class="tag">Segurança Digital</span>
+          <span class="tag">Acessibilidade</span>
+          <span class="tag">Pesquisa anônima</span>
+        </div>
+
+        <p class="small" style="margin-top:18px">
+          Nenhum nome, e-mail, telefone, matrícula ou outro identificador pessoal é solicitado pelo formulário deste site.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <div class="access" aria-label="Recursos de acessibilidade">
+    <button type="button" id="fontUp" aria-label="Aumentar tamanho da fonte">A+</button>
+    <button type="button" id="contrast" aria-label="Alternar alto contraste">◐</button>
+  </div>
+
+  <footer>
+    <strong>Conecta Seguro</strong><br>
+    Projeto educativo de inclusão e segurança digital para a comunidade escolar.
+  </footer>
+
+  <script>
+    /*
+      ==========================================================
+      CONECTA SEGURO - CONFIGURAÇÃO DA COLETA
+      ==========================================================
+
+      IMPORTANTE:
+      O link normal da planilha Google Sheets NÃO recebe POST do navegador.
+
+      Depois de colar o arquivo Code.gs no Apps Script e publicar como
+      "Aplicativo da Web", substitua o texto abaixo pela URL terminada em /exec.
+
+      Exemplo:
+      https://script.google.com/macros/s/SEU_ID_DE_IMPLANTACAO/exec
+    */
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxAXYo15T2bSYgy1G5dHyBohQRKHGRgQZ6A1z-FrsezZNMcs4-um14TrtuWuDdZlvO6bA/exec";
+
+    const ANSWER_KEY = {
+      q1: "C",
+      q2: "B",
+      q3: "C",
+      q4: "C",
+      q5: "B",
+      q6: "B",
+      q7: "B",
+      q8: "B"
+    };
+
+    let quizState = null;
+    let enviado = false;
+
+    const surveyForm = document.getElementById("surveyForm");
+    const quizForm = document.getElementById("quizForm");
+    const resultado = document.getElementById("resultado");
+    const finalEvaluation = document.getElementById("finalEvaluation");
+    const sendStatus = document.getElementById("sendStatus");
+    const sendButton = document.getElementById("sendData");
+    const surveyValidation = document.getElementById("surveyValidation");
+
+    function selectedRadio(name) {
+      return document.querySelector(`input[name="${name}"]:checked`)?.value || "";
+    }
+
+    function selectedCheckboxes(name) {
+      return [...document.querySelectorAll(`input[name="${name}"]:checked`)]
+        .map(input => input.value);
+    }
+
+    function showStatus(element, message, type) {
+      element.className = `status ${type}`;
+      element.textContent = message;
+    }
+
+    function validateSurvey() {
+      const consentimento = document.getElementById("consentimento").checked;
+
+      if (!consentimento) {
+        showStatus(
+          surveyValidation,
+          "Para participar, marque o consentimento de participação anônima.",
+          "error"
+        );
+        return false;
+      }
+
+      const requiredRadios = [
+        "tentativaGolpe",
+        "caiuGolpe",
+        "familiarCaiu",
+        "prejuizo",
+        "doisFatores",
+        "preparoAntes"
+      ];
+
+      for (const name of requiredRadios) {
+        if (!selectedRadio(name)) {
+          showStatus(
+            surveyValidation,
+            "Responda todas as perguntas obrigatórias da pesquisa antes de continuar.",
+            "error"
+          );
+          return false;
+        }
+      }
+
+      if (selectedCheckboxes("tiposGolpe").length === 0) {
+        showStatus(
+          surveyValidation,
+          "Selecione pelo menos uma opção em “tipos de golpe”.",
+          "error"
+        );
+        return false;
+      }
+
+      if (selectedCheckboxes("canaisGolpe").length === 0) {
+        showStatus(
+          surveyValidation,
+          "Selecione pelo menos uma opção em “meios de contato”.",
+          "error"
+        );
+        return false;
+      }
+
+      showStatus(
+        surveyValidation,
+        "Pesquisa inicial preenchida. Agora responda ao quiz.",
+        "ok"
+      );
+
+      return true;
+    }
+
+    document.getElementById("goQuiz").addEventListener("click", function(event) {
+      if (!validateSurvey()) {
+        event.preventDefault();
+        document.getElementById("pesquisa").scrollIntoView({ behavior: "smooth" });
+      }
+    });
+
+    document.querySelectorAll('input[data-exclusive]').forEach(exclusive => {
+      exclusive.addEventListener("change", () => {
+        if (!exclusive.checked) return;
+
+        const groupName = exclusive.dataset.exclusive;
+
+        document.querySelectorAll(`input[name="${groupName}"]`).forEach(input => {
+          if (input !== exclusive) input.checked = false;
+        });
+      });
+    });
+
+    ["tiposGolpe", "canaisGolpe"].forEach(groupName => {
+      document.querySelectorAll(`input[name="${groupName}"]:not([data-exclusive])`)
+        .forEach(input => {
+          input.addEventListener("change", () => {
+            if (!input.checked) return;
+
+            const exclusive = document.querySelector(
+              `input[name="${groupName}"][data-exclusive]`
+            );
+
+            if (exclusive) exclusive.checked = false;
+          });
+        });
+    });
+
+    quizForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      if (!validateSurvey()) {
+        document.getElementById("pesquisa").scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+
+      const respostas = {};
+      const acertos = {};
+      let score = 0;
+
+      for (let i = 1; i <= 8; i++) {
+        const name = `q${i}`;
+        const resposta = selectedRadio(name);
+
+        if (!resposta) {
+          resultado.style.display = "block";
+          resultado.textContent = "Responda todas as 8 questões antes de visualizar o resultado.";
+          document.getElementById("quiz").scrollIntoView({ behavior: "smooth" });
+          return;
+        }
+
+        respostas[name] = resposta;
+        acertos[name] = resposta === ANSWER_KEY[name] ? 1 : 0;
+        score += acertos[name];
+      }
+
+      quizState = {
+        respostas,
+        acertos,
+        score
+      };
+
+      resultado.style.display = "block";
+
+      if (score === 8) {
+        resultado.textContent =
+          "Excelente! Você acertou 8 de 8. Agora responda à avaliação final e envie a pesquisa.";
+      } else if (score >= 6) {
+        resultado.textContent =
+          `Muito bom! Você acertou ${score} de 8. Responda à avaliação final para concluir.`;
+      } else if (score >= 4) {
+        resultado.textContent =
+          `Você acertou ${score} de 8. Reveja os pontos em que teve dúvida e conclua a avaliação.`;
+      } else {
+        resultado.textContent =
+          `Você acertou ${score} de 8. Vale revisar as orientações do site. Depois, conclua a avaliação final.`;
+      }
+
+      finalEvaluation.style.display = "block";
+      finalEvaluation.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    function buildPayload() {
+      if (!quizState) return null;
+
+      return {
+        consentimento: true,
+        tentativaGolpe: selectedRadio("tentativaGolpe"),
+        caiuGolpe: selectedRadio("caiuGolpe"),
+        familiarCaiu: selectedRadio("familiarCaiu"),
+        tiposGolpe: selectedCheckboxes("tiposGolpe"),
+        canaisGolpe: selectedCheckboxes("canaisGolpe"),
+        prejuizo: selectedRadio("prejuizo"),
+        doisFatores: selectedRadio("doisFatores"),
+        preparoAntes: selectedRadio("preparoAntes"),
+
+        q1Resposta: quizState.respostas.q1,
+        q1Acerto: quizState.acertos.q1,
+        q2Resposta: quizState.respostas.q2,
+        q2Acerto: quizState.acertos.q2,
+        q3Resposta: quizState.respostas.q3,
+        q3Acerto: quizState.acertos.q3,
+        q4Resposta: quizState.respostas.q4,
+        q4Acerto: quizState.acertos.q4,
+        q5Resposta: quizState.respostas.q5,
+        q5Acerto: quizState.acertos.q5,
+        q6Resposta: quizState.respostas.q6,
+        q6Acerto: quizState.acertos.q6,
+        q7Resposta: quizState.respostas.q7,
+        q7Acerto: quizState.acertos.q7,
+        q8Resposta: quizState.respostas.q8,
+        q8Acerto: quizState.acertos.q8,
+
+        pontuacao: quizState.score,
+        preparoDepois: selectedRadio("preparoDepois"),
+        maisPreparado: selectedRadio("maisPreparado"),
+        conteudoUtil: selectedRadio("conteudoUtil")
+      };
+    }
+
+    async function enviarDados(payload) {
+      /*
+        mode: "no-cors" permite o envio a partir do GitHub Pages
+        para o Apps Script sem exigir que a planilha fique pública.
+
+        Como a resposta fica "opaque", o navegador não consegue ler
+        o JSON retornado. Por isso a confirmação exibida significa
+        que a requisição foi disparada sem erro de rede no navegador.
+      */
+      await fetch(WEB_APP_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(payload)
+      });
+    }
+
+    sendButton.addEventListener("click", async function() {
+      if (enviado) return;
+
+      if (!quizState) {
+        showStatus(
+          sendStatus,
+          "Primeiro responda ao quiz e clique em “Ver resultado”.",
+          "error"
+        );
+        return;
+      }
+
+      const preparoDepois = selectedRadio("preparoDepois");
+      const maisPreparado = selectedRadio("maisPreparado");
+      const conteudoUtil = selectedRadio("conteudoUtil");
+
+      if (!preparoDepois || !maisPreparado || !conteudoUtil) {
+        showStatus(
+          sendStatus,
+          "Responda às três perguntas da avaliação final antes de enviar.",
+          "error"
+        );
+        return;
+      }
+
+      if (
+        !WEB_APP_URL ||
+        WEB_APP_URL.includes("COLE_AQUI") ||
+        !WEB_APP_URL.endsWith("/exec")
+      ) {
+        showStatus(
+          sendStatus,
+          "A coleta ainda não foi configurada. Publique o Code.gs como Aplicativo da Web e coloque a URL /exec na constante WEB_APP_URL.",
+          "error"
+        );
+        return;
+      }
+
+      const payload = buildPayload();
+
+      try {
+        sendButton.disabled = true;
+        sendButton.textContent = "Enviando...";
+
+        showStatus(
+          sendStatus,
+          "Enviando respostas para a planilha...",
+          "info"
+        );
+
+        await enviarDados(payload);
+
+        enviado = true;
+        sendButton.textContent = "Respostas enviadas";
+
+        showStatus(
+          sendStatus,
+          "Obrigado! Suas respostas anônimas foram enviadas. Nenhum nome, e-mail ou matrícula foi solicitado.",
+          "ok"
+        );
+
+      } catch (error) {
+        console.error(error);
+
+        sendButton.disabled = false;
+        sendButton.textContent = "Tentar enviar novamente";
+
+        showStatus(
+          sendStatus,
+          "Não foi possível enviar agora. Verifique sua conexão e tente novamente.",
+          "error"
+        );
+      }
+    });
+
+    let baseSize = 16;
+
+    document.getElementById("fontUp").addEventListener("click", () => {
+      baseSize = baseSize >= 20 ? 16 : baseSize + 2;
+      document.documentElement.style.fontSize = `${baseSize}px`;
+    });
+
+    document.getElementById("contrast").addEventListener("click", () => {
+      document.body.classList.toggle("high-contrast");
+    });
+  </script>
+  <section id="responsavel">
+  <div class="wrap">
+    <h2>Responsável pelo projeto</h2>
+
+    <p class="section-lead">
+      <strong>Fernando Holtz Ventura</strong> é professor do Curso Técnico em
+      Desenvolvimento de Sistemas no Colégio Estadual Abraham Lincoln —
+      C.E. Pres.-EF M N.
+    </p>
+
+    <p class="section-lead">
+      Possui formação em Análise e Desenvolvimento de Sistemas, com estudos
+      e atuação nas áreas de Ciência de Dados e Desenvolvimento Back-end,
+      e atualmente cursa Ciência da Computação pela UNINTER.
+    </p>
+
+    <p class="section-lead">
+      Este projeto foi desenvolvido com finalidade educacional e extensionista,
+      buscando promover inclusão, conscientização e segurança digital na
+      comunidade escolar.
+    </p>
+
+    <a
+      class="btn btn-primary"
+      href="https://wa.me/5541987902852?text=Olá%2C%20vi%20o%20projeto%20Conecta%20Seguro%20e%20gostaria%20de%20tirar%20uma%20dúvida."
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Falar com o responsável
+    </a>
+  </div>
+</section>
+<footer>
+  <strong>Conecta Seguro</strong><br>
+  Projeto educativo de inclusão e segurança digital para a comunidade escolar.<br>
+  Desenvolvido por Fernando Holtz Ventura.
+</footer>
+
+<!-- ============================================================
+     CONECTA SEGURO — ATUALIZAÇÃO FINAL
+     POP-UP DE CONSCIENTIZAÇÃO + RESPONSÁVEL PELO PROJETO
+     COLE IMEDIATAMENTE ANTES DE </body>
+============================================================ -->
+
+
+<!-- ============================================================
+     1. SEÇÃO RESPONSÁVEL PELO PROJETO
+============================================================ -->
+
+<section id="responsavel-conecta-seguro" class="cs-responsavel">
+  <div class="cs-responsavel-container">
+
+    <div class="cs-responsavel-tag">
+      Responsável pelo projeto
+    </div>
+
+    <h2>Sobre o responsável</h2>
+
+    <p class="cs-responsavel-nome">
+      <strong>Fernando Holtz Ventura</strong>
+    </p>
+
+    <p>
+      Professor do Curso Técnico em Desenvolvimento de Sistemas no
+      <strong>Colégio Estadual Abraham Lincoln — C.E. Pres.-EF M N</strong>.
+    </p>
+
+    <p>
+      Formação em <strong>Análise e Desenvolvimento de Sistemas</strong>,
+      com estudos e atuação nas áreas de
+      <strong>Ciência de Dados</strong> e
+      <strong>Desenvolvimento Back-end</strong>.
+      Atualmente cursa
+      <strong>Ciência da Computação pela UNINTER</strong>.
+    </p>
+
+    <p>
+      O projeto <strong>Conecta Seguro</strong> foi desenvolvido com
+      finalidade educacional e extensionista, buscando promover
+      conscientização, inclusão e segurança digital na comunidade escolar.
+    </p>
+
+    <div class="cs-contato-box">
+
+      <div>
+        <strong>Dúvidas sobre o projeto?</strong>
+        <span>
+          Entre em contato pelo WhatsApp.
+        </span>
+      </div>
+
+      <a
+        href="https://wa.me/5541987902852?text=Olá%20Fernando%2C%20acessei%20o%20projeto%20Conecta%20Seguro%20e%20gostaria%20de%20tirar%20uma%20dúvida."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="cs-whatsapp"
+      >
+        Falar pelo WhatsApp
+      </a>
+
+    </div>
+
+    <p class="cs-telefone">
+      Contato: (41) 98790-2852
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     2. POP-UP INICIAL — CONSCIENTIZAÇÃO SOBRE QR CODE
+============================================================ -->
+
+<div
+  id="csQrAlert"
+  class="cs-qr-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="csQrTitle"
+  aria-describedby="csQrDescription"
+>
+
+  <div class="cs-qr-modal">
+
+    <div class="cs-qr-icon" aria-hidden="true">
+      !
+    </div>
+
+    <p class="cs-qr-label">
+      ALERTA DE SEGURANÇA
+    </p>
+
+    <h2 id="csQrTitle">
+      Você acabou de confiar em um QR Code.
+    </h2>
+
+    <p id="csQrDescription" class="cs-qr-intro">
+      Você apontou a câmera e acessou este endereço sem saber,
+      necessariamente, para onde o código levaria.
+    </p>
+
+    <div class="cs-qr-warning">
+
+      <strong>
+        Felizmente, este QR Code faz parte de um projeto educacional.
+      </strong>
+
+      <p>
+        Em uma situação real, um QR Code desconhecido poderia direcionar
+        você para uma página falsa, tentativa de fraude ou roubo de
+        informações.
+      </p>
+
+    </div>
+
+    <p class="cs-qr-message">
+      A curiosidade não é o problema.
+      <strong>O importante é verificar antes de confiar.</strong>
+    </p>
+
+    <button
+      type="button"
+      id="csQrContinue"
+      class="cs-qr-button"
+    >
+      Entendi. Quero continuar
+    </button>
+
+    <p class="cs-qr-footer">
+      Conecta Seguro · Segurança digital começa com uma escolha.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- ============================================================
+     3. ESTILOS
+============================================================ -->
+
+<style>
+
+  /* ==========================================================
+     RESPONSÁVEL
+  ========================================================== */
+
+  .cs-responsavel {
+    background: #ffffff;
+    padding: 65px 20px;
+    border-top: 1px solid #e5e9f0;
+  }
+
+  .cs-responsavel-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .cs-responsavel-tag {
+    display: inline-block;
+    padding: 7px 13px;
+    margin-bottom: 12px;
+
+    background: #eaf8f2;
+    color: #08765c;
+
+    border: 1px solid #bce9da;
+    border-radius: 999px;
+
+    font-size: 0.84rem;
+    font-weight: 700;
+  }
+
+  .cs-responsavel h2 {
+    margin: 4px 0 20px;
+
+    color: #172033;
+    font-size: clamp(1.7rem, 4vw, 2.2rem);
+  }
+
+  .cs-responsavel p {
+    max-width: 800px;
+
+    color: #536070;
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+
+  .cs-responsavel-nome {
+    color: #172033 !important;
+    font-size: 1.12rem !important;
+  }
+
+
+  /* ==========================================================
+     CONTATO
+  ========================================================== */
+
+  .cs-contato-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-top: 28px;
+    padding: 20px;
+
+    background: #f4f7fb;
+
+    border: 1px solid #e0e6ee;
+    border-radius: 16px;
+  }
+
+  .cs-contato-box div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .cs-contato-box strong {
+    color: #172033;
+  }
+
+  .cs-contato-box span {
+    color: #667085;
+    font-size: 0.9rem;
+  }
+
+  .cs-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 18px;
+
+    background: #08765c;
+    color: #ffffff !important;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+    font-weight: 700;
+
+    transition:
+      transform 0.2s ease,
+      background 0.2s ease;
+  }
+
+  .cs-whatsapp:hover {
+    background: #065e49;
+    transform: translateY(-1px);
+  }
+
+  .cs-telefone {
+    margin-top: 12px;
+    font-size: 0.88rem !important;
+  }
+
+
+  /* ==========================================================
+     FUNDO DO POP-UP
+  ========================================================== */
+
+  .cs-qr-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 999999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(8, 15, 29, 0.91);
+
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+  }
+
+
+  .cs-qr-overlay.cs-hidden {
+    display: none;
+  }
+
+
+  /* ==========================================================
+     CAIXA DO POP-UP
+  ========================================================== */
+
+  .cs-qr-modal {
+    width: min(100%, 570px);
+
+    padding: 32px 28px 25px;
+
+    background: #ffffff;
+
+    border-radius: 24px;
+
+    box-shadow:
+      0 25px 80px rgba(0, 0, 0, 0.40);
+
+    text-align: center;
+
+    animation:
+      csQrEntrada 0.35s ease-out;
+  }
+
+
+  /* ==========================================================
+     ÍCONE DE ALERTA
+  ========================================================== */
+
+  .cs-qr-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 68px;
+    height: 68px;
+
+    margin: 0 auto 15px;
+
+    background: #fff0e8;
+
+    border: 2px solid #e9582b;
+    border-radius: 50%;
+
+    color: #d94218;
+
+    font-size: 2rem;
+    font-weight: 900;
+  }
+
+
+  /* ==========================================================
+     TEXTO
+  ========================================================== */
+
+  .cs-qr-label {
+    margin: 0 0 8px;
+
+    color: #d94218;
+
+    font-size: 0.78rem;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+  }
+
+
+  .cs-qr-modal h2 {
+    margin: 0 auto 15px;
+
+    max-width: 490px;
+
+    color: #172033;
+
+    font-size: clamp(
+      1.7rem,
+      5vw,
+      2.25rem
+    );
+
+    line-height: 1.13;
+  }
+
+
+  .cs-qr-intro {
+    margin: 0 auto 18px;
+
+    max-width: 490px;
+
+    color: #596579;
+
+    line-height: 1.55;
+  }
+
+
+  /* ==========================================================
+     BLOCO CENTRAL DE ALERTA
+  ========================================================== */
+
+  .cs-qr-warning {
+    margin: 20px 0;
+
+    padding: 18px;
+
+    background: #fff8e7;
+
+    border:
+      1px solid #f1d994;
+
+    border-left:
+      5px solid #e7a900;
+
+    border-radius: 12px;
+
+    text-align: left;
+
+    color: #444c59;
+  }
+
+
+  .cs-qr-warning strong {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #222b38;
+  }
+
+
+  .cs-qr-warning p {
+    margin: 0;
+
+    line-height: 1.55;
+  }
+
+
+  .cs-qr-message {
+    margin: 18px auto;
+
+    max-width: 480px;
+
+    color: #536070;
+
+    line-height: 1.55;
+  }
+
+
+  .cs-qr-message strong {
+    color: #172033;
+  }
+
+
+  /* ==========================================================
+     BOTÃO
+  ========================================================== */
+
+  .cs-qr-button {
+    width: 100%;
+
+    border: none;
+
+    padding: 15px 20px;
+
+    background: #1f5eff;
+
+    color: #ffffff;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+    font-weight: 800;
+
+    transition:
+      transform 0.2s ease,
+      background 0.2s ease;
+  }
+
+
+  .cs-qr-button:hover {
+    background: #194dce;
+
+    transform:
+      translateY(-1px);
+  }
+
+
+  .cs-qr-button:focus-visible {
+    outline:
+      3px solid #96b3ff;
+
+    outline-offset: 3px;
+  }
+
+
+  .cs-qr-footer {
+    margin: 14px 0 0;
+
+    color: #87909e;
+
+    font-size: 0.78rem;
+  }
+
+
+  /* ==========================================================
+     ANIMAÇÃO
+  ========================================================== */
+
+  @keyframes csQrEntrada {
+
+    from {
+      opacity: 0;
+
+      transform:
+        translateY(18px)
+        scale(0.98);
+    }
+
+    to {
+      opacity: 1;
+
+      transform:
+        translateY(0)
+        scale(1);
+    }
+
+  }
+
+
+  /* ==========================================================
+     CELULAR
+  ========================================================== */
+
+  @media (
+    max-width: 600px
+  ) {
+
+    .cs-qr-modal {
+      padding:
+        27px 20px
+        22px;
+
+      border-radius: 19px;
+    }
+
+
+    .cs-contato-box {
+      flex-direction: column;
+
+      align-items: flex-start;
+    }
+
+
+    .cs-whatsapp {
+      width: 100%;
+    }
+
+  }
+
+
+  /* ==========================================================
+     ACESSIBILIDADE
+  ========================================================== */
+
+  @media (
+    prefers-reduced-motion: reduce
+  ) {
+
+    .cs-qr-modal {
+      animation: none;
+    }
+
+  }
+
+</style>
+
+
+<!-- ============================================================
+     4. JAVASCRIPT
+============================================================ -->
+
+<script>
+
+  (function () {
+
+    const popup =
+      document.getElementById(
+        "csQrAlert"
+      );
+
+    const botao =
+      document.getElementById(
+        "csQrContinue"
+      );
+
+
+    if (
+      !popup ||
+      !botao
+    ) {
+
+      return;
+
+    }
+
+
+    /*
+      Evita que a pessoa receba o alerta
+      várias vezes durante a mesma navegação.
+    */
+
+    const alertaJaVisto =
+      sessionStorage.getItem(
+        "conectaSeguroQrVisto"
+      );
+
+
+    if (
+      alertaJaVisto === "sim"
+    ) {
+
+      popup.classList.add(
+        "cs-hidden"
+      );
+
+      return;
+    }
+
+
+    /*
+      Enquanto o alerta estiver aberto,
+      impede a rolagem do site.
+    */
+
+    document.body.style.overflow =
+      "hidden";
+
+
+    /*
+      Fecha o alerta.
+    */
+
+    function fecharAlerta() {
+
+      popup.classList.add(
+        "cs-hidden"
+      );
+
+
+      document.body.style.overflow =
+        "";
+
+
+      sessionStorage.setItem(
+        "conectaSeguroQrVisto",
+        "sim"
+      );
+
+    }
+
+
+    botao.addEventListener(
+      "click",
+      fecharAlerta
+    );
+
+
+    /*
+      Acessibilidade:
+      tecla ESC também fecha o alerta.
+    */
+
+    document.addEventListener(
+      "keydown",
+      function (evento) {
+
+        if (
+          evento.key === "Escape"
+        ) {
+
+          fecharAlerta();
+
+        }
+
+      }
+    );
+
+
+    /*
+      Coloca o foco diretamente no botão
+      para facilitar navegação por teclado.
+    */
+
+    setTimeout(
+      function () {
+
+        botao.focus();
+
+      },
+      150
+    );
+
+  })();
+
+</script>
+</body>
+</html>
