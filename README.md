@@ -2,6 +2,13 @@
 
 Projeto educacional de inclusão, conscientização e segurança digital desenvolvido como Atividade Extensionista III do Bacharelado em Ciência da Computação da UNINTER, com aplicação em comunidades escolares de Colombo, Paraná.
 
+
+## Banner utilizado na coleta de dados
+
+O material abaixo foi utilizado na divulgação presencial da atividade nas escolas participantes.
+
+[![Banner utilizado na coleta de dados do Conecta Seguro](assets/banner-coleta-conecta-seguro.jpg)](https://fernandoholtz.github.io/Atividade-Exten-Uninter/)
+
 ## Acesso ao projeto
 
 **Site publicado:**  
