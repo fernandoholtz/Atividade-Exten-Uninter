@@ -1,218 +1,53 @@
-# 🔐 Conecta Seguro
+# Conecta Seguro
 
-Projeto educacional de **inclusão, conscientização e segurança digital** desenvolvido como atividade extensionista acadêmica, com aplicação voltada à comunidade escolar.
+Projeto educacional de inclusão, conscientização e segurança digital desenvolvido como Atividade Extensionista III do Bacharelado em Ciência da Computação da UNINTER, com aplicação em comunidades escolares de Colombo, Paraná.
 
-🌐 **Projeto publicado:**  
+## Acesso ao projeto
+
+**Site publicado:**  
 https://fernandoholtz.github.io/Atividade-Exten-Uninter/
 
-[![Banner do projeto Conecta Seguro](assets/banner-conecta-seguro.jpg)](https://fernandoholtz.github.io/Atividade-Exten-Uninter/)
+O endereço acima corresponde à versão pública do projeto hospedada no GitHub Pages e pode ser acessado diretamente por navegador ou pelo QR Code utilizado nos materiais de divulgação.
 
----
+## Sobre o projeto
 
-## 📌 Sobre o projeto
+O Conecta Seguro foi criado para aproximar conceitos de segurança digital da realidade cotidiana de estudantes e demais integrantes da comunidade escolar.
 
-O **Conecta Seguro** foi desenvolvido com o objetivo de aproximar conceitos de segurança digital da realidade cotidiana de estudantes, professores, familiares e demais integrantes da comunidade escolar.
+A solução apresenta conteúdo educativo sobre golpes digitais, phishing, mensagens fraudulentas, QR Codes maliciosos, falsos familiares no WhatsApp, compras e boletos falsos, suporte técnico fraudulento, invasão de contas e autenticação em duas etapas.
 
-A proposta combina:
+O portal também possui um quiz com oito situações práticas e uma pesquisa sem solicitação de identificação pessoal.
 
-- conscientização sobre golpes digitais;
-- situações práticas do cotidiano;
-- segurança no uso de QR Codes;
-- phishing;
-- golpes por WhatsApp;
-- SMS fraudulentos;
-- ligações falsas;
-- boletos e PIX;
-- falsas promoções;
-- invasão de contas;
-- autenticação em duas etapas;
-- proteção de dados;
-- quiz interativo;
-- pesquisa anônima;
-- análise dos resultados obtidos.
+## Aplicação
 
-O projeto busca apresentar esses conteúdos em uma linguagem simples, acessível e interativa.
+A atividade foi aplicada nas comunidades escolares do Colégio Estadual Abraham Lincoln e do Colégio Estadual Luiz Sebastião Baldo, em Colombo, Paraná.
 
----
+A divulgação ocorreu por meio de cartazes e banners com QR Code instalados em espaços de circulação das instituições. O acesso foi voluntário e realizado pelos próprios participantes em seus dispositivos.
 
-## 🎯 Objetivo
+## Pesquisa e resultados
 
-Promover conhecimento sobre riscos presentes no ambiente digital e incentivar comportamentos mais seguros no uso de celulares, redes sociais, aplicativos, mensagens, links e QR Codes.
+A base final registrou 37 participações.
 
-Além do caráter educativo, o projeto permite a obtenção de **indicadores anônimos sobre experiências e conhecimentos relacionados a golpes digitais**.
+Principais indicadores observados:
 
----
+- 51,4% relataram já ter recebido tentativa de golpe;
+- 75,7% informaram que familiar ou pessoa próxima já havia sido vítima;
+- 48,6% utilizavam autenticação em duas etapas;
+- a percepção média de preparo passou de 4,05 para 4,54 em uma escala de 1 a 5;
+- a média do quiz foi de 7,49 em 8 pontos;
+- 81,1% afirmaram sentir-se mais preparados após a atividade;
+- 81,1% avaliaram a utilidade do conteúdo com nota 4 ou 5.
 
-## ⚡ Experiência com QR Code
+Os resultados são analisados de forma agregada para fins acadêmicos e educacionais.
 
-Uma das estratégias do projeto é utilizar cartazes físicos contendo um QR Code.
+## Privacidade
 
-Ao escanear o código, o participante acessa o site e recebe inicialmente uma mensagem de conscientização:
+A coleta foi estruturada para evitar a solicitação de identificadores pessoais.
 
-> **"Você acabou de confiar em um QR Code."**
+O formulário não solicita nome, CPF, telefone, endereço, matrícula, e-mail ou turma. A planilha de dados utilizada na análise permanece com acesso restrito.
 
-O objetivo não é assustar o usuário, mas demonstrar como uma ação aparentemente simples pode representar um risco quando a origem de um QR Code, link ou página não é conhecida.
+Durante a aplicação também foram priorizadas evidências digitais e quantitativas, evitando registros fotográficos de estudantes e de ambientes escolares.
 
-Após o alerta, o participante pode continuar normalmente para o conteúdo educacional.
-
----
-
-## 🧠 Conteúdo abordado
-
-O site apresenta exemplos e orientações relacionadas a diferentes tipos de ameaças digitais, entre elas:
-
-### Phishing
-Tentativas de obter informações pessoais utilizando páginas, mensagens ou links falsos.
-
-### Smishing
-Golpes realizados por mensagens SMS.
-
-### Vishing
-Tentativas de fraude realizadas por chamadas telefônicas.
-
-### Golpe do falso familiar
-Criminosos se passam por familiares ou pessoas conhecidas, principalmente pelo WhatsApp.
-
-### Falsas compras e cartões
-Sites, promoções ou contatos utilizados para obter dados financeiros.
-
-### Boletos falsos
-
-Manipulação ou substituição de dados de pagamento.
-
-### QR Codes maliciosos
-
-Códigos que podem direcionar usuários para páginas falsas ou ambientes fraudulentos.
-
-### Falso suporte técnico
-
-Criminosos se passam por empresas ou profissionais para obter acesso a contas ou dispositivos.
-
-### Golpes envolvendo PIX
-
-Solicitações falsas, engenharia social e transferências fraudulentas.
-
-### Roubo ou invasão de contas
-
-Orientações sobre proteção de contas, senhas e autenticação em duas etapas.
-
----
-
-## 📝 Quiz interativo
-
-O projeto possui um quiz baseado em situações práticas.
-
-O participante deve analisar diferentes cenários e escolher como agiria diante da situação apresentada.
-
-Ao final, o sistema calcula automaticamente o desempenho do participante.
-
-Atualmente o quiz possui **8 situações relacionadas à segurança digital**.
-
----
-
-## 📊 Pesquisa anônima
-
-Além do conteúdo educacional, o site possui uma pesquisa para obtenção de indicadores sobre segurança digital.
-
-Entre os dados analisados estão:
-
-- contato anterior com tentativas de golpe;
-- ocorrência de golpes;
-- experiências de familiares ou pessoas próximas;
-- tipos de golpes encontrados;
-- meios utilizados pelos criminosos;
-- ocorrência de prejuízo financeiro;
-- utilização de autenticação em duas etapas;
-- percepção de conhecimento antes da atividade;
-- desempenho no quiz;
-- percepção após a atividade;
-- avaliação da utilidade do conteúdo.
-
----
-
-## 🔒 Privacidade
-
-A coleta foi estruturada para ser **anônima**.
-
-O formulário não solicita:
-
-- nome;
-- CPF;
-- telefone;
-- endereço;
-- matrícula;
-- e-mail;
-- turma;
-- outro identificador pessoal obrigatório.
-
-O participante também precisa concordar com a participação antes do envio das informações.
-
-Os resultados são utilizados de forma agregada para fins educacionais e acadêmicos.
-
----
-
-## 📈 Processamento dos dados
-
-Quando o participante conclui a atividade:
-
-1. o navegador prepara os dados;
-2. o site envia as respostas para uma aplicação criada com **Google Apps Script**;
-3. o Apps Script processa as informações;
-4. as respostas são armazenadas em uma planilha Google Sheets;
-5. uma área de resumo é atualizada automaticamente;
-6. são calculados indicadores sobre as respostas recebidas.
-
-A planilha utilizada para análise permanece com acesso restrito.
-
----
-
-## 📊 Indicadores automáticos
-
-O sistema gera automaticamente informações como:
-
-- quantidade total de participantes;
-- percentual que já recebeu tentativa de golpe;
-- percentual que já foi vítima;
-- utilização de autenticação em duas etapas;
-- média de conhecimento antes da atividade;
-- média do quiz;
-- média de percepção depois da atividade;
-- taxa de acerto de cada questão;
-- principais tipos de golpes identificados;
-- principais canais utilizados nos golpes.
-
----
-
-## ♿ Acessibilidade
-
-O projeto também considera recursos básicos de acessibilidade digital.
-
-Entre eles:
-
-- aumento do tamanho das fontes;
-- modo de alto contraste;
-- navegação responsiva;
-- estrutura adequada para computadores e smartphones;
-- preocupação com legibilidade e contraste;
-- interface simplificada.
-
----
-
-## 🌎 Objetivo de Desenvolvimento Sustentável
-
-O projeto está relacionado principalmente ao:
-
-### ODS 4 — Educação de Qualidade
-
-A proposta busca ampliar o acesso ao conhecimento sobre segurança e cidadania digital, utilizando tecnologia como ferramenta educativa.
-
-Também apresenta relação com inclusão digital e redução de vulnerabilidades provocadas pela falta de conhecimento tecnológico.
-
----
-
-## 💻 Tecnologias utilizadas
-
-O projeto foi desenvolvido utilizando:
+## Tecnologias utilizadas
 
 - HTML5
 - CSS3
@@ -224,23 +59,36 @@ O projeto foi desenvolvido utilizando:
 - GitHub Pages
 - Visual Studio Code
 
----
-
-## 🏗️ Arquitetura simplificada
+## Arquitetura simplificada
 
 ```text
 Usuário
-   ↓
+  |
 QR Code
-   ↓
+  |
 GitHub Pages
-   ↓
+  |
 Site Conecta Seguro
-   ↓
-Conteúdo + Pesquisa + Quiz
-   ↓
+  |
+Conteúdo + Quiz + Pesquisa
+  |
 Google Apps Script
-   ↓
+  |
 Google Sheets
-   ↓
+  |
 Indicadores e análise dos resultados
+```
+
+## Objetivo de Desenvolvimento Sustentável
+
+O projeto está relacionado principalmente ao **ODS 4 — Educação de Qualidade**, utilizando tecnologia como ferramenta de educação, conscientização e inclusão digital.
+
+## Responsável
+
+**Fernando Holtz Ventura**  
+Bacharelado em Ciência da Computação — UNINTER  
+Atividade Extensionista III — Tecnologia Aplicada à Inclusão Digital: Análise
+
+## Repositório
+
+Este repositório contém o código-fonte utilizado na versão publicada do projeto e registra sua evolução por meio do controle de versão do GitHub.
