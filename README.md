@@ -7,7 +7,8 @@ Projeto educacional de inclusão, conscientização e segurança digital desenvo
 
 O material abaixo foi utilizado na divulgação presencial da atividade nas escolas participantes.
 
-[![Banner utilizado na coleta de dados do Conecta Seguro](assets/banner-coleta-conecta-seguro.jpg)](https://fernandoholtz.github.io/Atividade-Exten-Uninter/)
+**Abrir o banner em tamanho original:**  
+https://fernandoholtz.github.io/Atividade-Exten-Uninter/assets/banner-coleta-conecta-seguro.jpg
 
 ## Acesso ao projeto
 
