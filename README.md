@@ -5,6 +5,8 @@ Projeto educacional de **inclusão, conscientização e segurança digital** des
 🌐 **Projeto publicado:**  
 https://fernandoholtz.github.io/Atividade-Exten-Uninter/
 
+[![Banner do projeto Conecta Seguro](assets/banner-conecta-seguro.jpg)](https://fernandoholtz.github.io/Atividade-Exten-Uninter/)
+
 ---
 
 ## 📌 Sobre o projeto
